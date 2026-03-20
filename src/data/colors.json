@@ -1,0 +1,8 @@
+{
+    "theme": {
+        "primary": "#C5A880",
+        "secondary": "#fdfbf7",
+        "textMain": "#ffffff",
+        "bgOverlayDark": "rgba(0, 0, 0, 0.6)"
+    }
+}

@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import colorsData from "../data/colors.json";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const { theme } = colorsData;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Invitación de XV Años" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body
+		class="antialiased overflow-x-hidden min-h-screen bg-fixed bg-cover bg-center"
+		style={`background-image: url('/background_nicole_2.jpg'); --color-primary: ${theme.primary}; --color-secondary: ${theme.secondary}; --color-text-main: ${theme.textMain}; --color-bg-overlay-light: ${theme.bgOverlayLight}; --color-bg-overlay-dark: ${theme.bgOverlayDark};`}
+	>
+		<main class="max-w-[100vw] overflow-hidden">
+			<slot />
+		</main>
+	</body>
+</html>

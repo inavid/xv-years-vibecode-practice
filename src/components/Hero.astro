@@ -1,0 +1,70 @@
+---
+// Hero.astro
+---
+
+<section
+    class="relative h-screen w-full flex items-center justify-center overflow-hidden"
+>
+    <!-- Background Image Overlay (Lets global background through) -->
+    <div class="absolute inset-0 bg-black/40 z-10 w-full h-full"></div>
+
+    <!-- Content -->
+    <div
+        class="relative z-20 text-center text-white flex flex-col items-center justify-center px-4"
+    >
+        <span
+            class="text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-inter font-light"
+        >
+            Mis Quince Años
+        </span>
+
+        <h1
+            class="font-playfair text-6xl md:text-8xl lg:text-9xl mb-6 tracking-wide drop-shadow-md"
+        >
+            Nicole
+        </h1>
+
+        <div class="w-16 h-[1px] bg-white opacity-60 mb-6"></div>
+
+        <p class="font-playfair text-xl md:text-2xl italic tracking-wider">
+            25 . Octubre . 2026
+        </p>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div
+        class="absolute bottom-8 z-20 flex flex-col items-center animate-bounce"
+    >
+        <span class="text-white/80 text-xs tracking-widest uppercase mb-2"
+            >Descubre</span
+        >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5 text-white/80"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+        </svg>
+    </div>
+</section>
+
+<style>
+    @keyframes pulseSlow {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.03);
+        }
+    }
+    .animate-pulse-slow {
+        animation: pulseSlow 20s infinite ease-in-out;
+    }
+</style>
