@@ -4,17 +4,6 @@ export default function DressCode() {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-[var(--color-bg-overlay-dark)] flex flex-col items-center">
       {/* Background Ornament SVGs */}
-      <img
-        src="https://lirioinvitaciones.com/redise-o-xv-19/_assets/media/fc59914318aa5b0c630a16fa9e6fed15.svg"
-        className="absolute top-[-10%] left-[-20%] w-[60%] md:w-[40%] opacity-10 pointer-events-none"
-        alt="Ornament"
-      />
-      <img
-        src="https://lirioinvitaciones.com/redise-o-xv-19/_assets/media/fc59914318aa5b0c630a16fa9e6fed15.svg"
-        className="absolute bottom-[-10%] right-[-20%] w-[60%] md:w-[40%] opacity-10 pointer-events-none"
-        alt="Ornament"
-      />
-
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl px-4">
         {/* Title */}
         <div className="border border-[#894691] rounded-[100%] px-12 md:px-16 py-3 md:py-4 mb-8">
@@ -73,13 +62,6 @@ export default function DressCode() {
         <p className="text-[#967c1f] font-inter text-[10px] md:text-xs font-bold tracking-[0.15em] text-center max-w-sm mb-16 uppercase leading-relaxed">
           El color morado se reserva exclusivamente para la quinceañera
         </p>
-
-        {/* Golden Divider SVG */}
-        <img
-          src="https://lirioinvitaciones.com/redise-o-xv-19/_assets/media/3244f46b4e7b3a34dedabc47f3e60c42.svg"
-          alt="Divider"
-          className="w-48 md:w-64 opacity-90 drop-shadow-sm"
-        />
       </div>
     </section>
   );
