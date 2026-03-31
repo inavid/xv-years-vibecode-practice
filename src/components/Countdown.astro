@@ -15,148 +15,187 @@
     >
     </div>
 
+    <!-- Scroll-reveal card (slides from right) -->
     <div
-        class="max-w-4xl w-full text-center relative z-10 flex flex-col items-center"
+        class="reveal-card slide-from-right max-w-3xl w-full bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-2xl px-8 py-12 md:px-14 md:py-16 relative z-10"
     >
-        <h2
-            class="font-playfair text-3xl md:text-4xl text-text-main mb-4 italic"
-        >
-            El tiempo se acerca
-        </h2>
-        <p
-            class="font-inter text-text-main/70 mb-12 uppercase tracking-[0.2em] text-sm"
-        >
-            Faltan
-        </p>
-
-        <!-- Static Visual Countdown -->
-        <div class="flex flex-wrap justify-center gap-4 md:gap-8">
-            <div class="flex flex-col items-center">
-                <div
-                    class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
-                >
-                    <span
-                        class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
-                        >45</span
-                    >
-                </div>
-                <span
-                    class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
-                    >Días</span
-                >
-            </div>
-
-            <div class="flex flex-col items-center">
-                <div
-                    class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
-                >
-                    <span
-                        class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
-                        >12</span
-                    >
-                </div>
-                <span
-                    class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
-                    >Horas</span
-                >
-            </div>
-
-            <div class="flex flex-col items-center">
-                <div
-                    class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
-                >
-                    <span
-                        class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
-                        >30</span
-                    >
-                </div>
-                <span
-                    class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
-                    >Minutos</span
-                >
-            </div>
-
-            <div class="flex flex-col items-center">
-                <div
-                    class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
-                >
-                    <span
-                        class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
-                        >15</span
-                    >
-                </div>
-                <span
-                    class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
-                    >Segundos</span
-                >
-            </div>
-        </div>
-
-        <!-- Magic Rose Animation -->
-        <div class="relative w-24 h-48 mb-6 flex justify-center items-end">
-            <!-- Glass Dome -->
-            <!-- <div
-                class="absolute inset-0 border-2 border-white/30 rounded-t-[3rem] bg-white/5 backdrop-blur-[2px] shadow-[0_0_15px_rgba(255,255,255,0.1)_inset] z-20 pointer-events-none"
+        <div class="flex flex-col items-center text-center">
+            <h2
+                class="font-playfair text-3xl md:text-4xl text-text-main mb-4 italic"
             >
-            </div> -->
-            <!-- Base -->
-            <div
-                class="absolute bottom-[-4px] w-28 h-4 bg-gradient-to-r from-[#8b6b4a] via-[#c4a47a] to-[#8b6b4a] rounded-[50%] z-10 shadow-lg"
+                El tiempo se acerca
+            </h2>
+            <p
+                class="font-inter text-text-main/70 mb-12 uppercase tracking-[0.2em] text-sm"
             >
+                Faltan
+            </p>
+
+            <!-- Static Visual Countdown -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
+                    >
+                        <span
+                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            id="countdown-days">45</span
+                        >
+                    </div>
+                    <span
+                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        >Días</span
+                    >
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
+                    >
+                        <span
+                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            id="countdown-hours">12</span
+                        >
+                    </div>
+                    <span
+                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        >Horas</span
+                    >
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-sm border border-white/20 shadow-xl flex items-center justify-center"
+                    >
+                        <span
+                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            id="countdown-minutes">30</span
+                        >
+                    </div>
+                    <span
+                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        >Minutos</span
+                    >
+                </div>
+
             </div>
 
-            <!-- Stem and Leaves -->
-            <svg
-                class="absolute bottom-2 w-16 h-32 z-0"
-                viewBox="0 0 100 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M50 200 C45 150 55 100 50 20"
-                    stroke="#4a5d23"
-                    stroke-width="3"
-                    stroke-linecap="round"></path>
-                <path
-                    d="M50 120 C30 110 20 120 30 130 C40 140 50 130 50 120"
-                    fill="#4a5d23"></path>
-                <path
-                    d="M52 80 C70 70 80 80 70 90 C60 100 50 90 52 80"
-                    fill="#4a5d23"></path>
-            </svg>
+            <!-- Magic Rose Animation -->
+            <div class="relative w-24 h-48 mt-10 flex justify-center items-end">
+                <!-- Base -->
+                <div
+                    class="absolute bottom-[-4px] w-28 h-4 bg-gradient-to-r from-[#8b6b4a] via-[#c4a47a] to-[#8b6b4a] rounded-[50%] z-10 shadow-lg"
+                >
+                </div>
 
-            <!-- Rose Head -->
-            <div class="absolute top-10 z-10">
+                <!-- Stem and Leaves -->
                 <svg
-                    class="w-12 h-12"
-                    viewBox="0 0 100 100"
+                    class="absolute bottom-2 w-16 h-32 z-0"
+                    viewBox="0 0 100 200"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        d="M50 90 C20 80 10 40 30 20 C40 10 50 30 50 30 C50 30 60 10 70 20 C90 40 80 80 50 90"
-                        fill="#a01212"></path>
+                        d="M50 200 C45 150 55 100 50 20"
+                        stroke="#4a5d23"
+                        stroke-width="3"
+                        stroke-linecap="round"></path>
                     <path
-                        d="M30 40 C40 20 60 20 70 40 C80 60 60 80 50 80 C40 80 20 60 30 40"
-                        fill="#c01515"></path>
+                        d="M50 120 C30 110 20 120 30 130 C40 140 50 130 50 120"
+                        fill="#4a5d23"></path>
                     <path
-                        d="M40 50 C45 35 55 35 60 50 C65 65 55 70 50 70 C45 70 35 65 40 50"
-                        fill="#e01a1a"></path>
+                        d="M52 80 C70 70 80 80 70 90 C60 100 50 90 52 80"
+                        fill="#4a5d23"></path>
                 </svg>
-            </div>
 
-            <!-- Glowing particles -->
-            <div
-                class="absolute top-12 w-2 h-2 bg-yellow-200 rounded-full blur-[2px] animate-pulse shadow-[0_0_10px_#fff]"
-            >
-            </div>
+                <!-- Rose Head (volumetric) -->
+                <div class="absolute top-6 z-10">
+                    <svg
+                        class="w-16 h-16"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <defs>
+                            <radialGradient id="rg1" cx="50%" cy="60%" r="50%">
+                                <stop offset="0%" stop-color="#ff6060"/>
+                                <stop offset="60%" stop-color="#c01515"/>
+                                <stop offset="100%" stop-color="#6b0000"/>
+                            </radialGradient>
+                            <radialGradient id="rg2" cx="40%" cy="40%" r="55%">
+                                <stop offset="0%" stop-color="#ff8080"/>
+                                <stop offset="70%" stop-color="#d01818"/>
+                                <stop offset="100%" stop-color="#8b0000"/>
+                            </radialGradient>
+                            <radialGradient id="rg3" cx="50%" cy="35%" r="50%">
+                                <stop offset="0%" stop-color="#ffaaaa"/>
+                                <stop offset="60%" stop-color="#e52020"/>
+                                <stop offset="100%" stop-color="#a00000"/>
+                            </radialGradient>
+                            <radialGradient id="rg4" cx="50%" cy="30%" r="45%">
+                                <stop offset="0%" stop-color="#ffd0d0"/>
+                                <stop offset="50%" stop-color="#f03030"/>
+                                <stop offset="100%" stop-color="#c00000"/>
+                            </radialGradient>
+                            <filter id="blur-soft">
+                                <feGaussianBlur stdDeviation="0.8"/>
+                            </filter>
+                        </defs>
+                        <!-- Outer petals -->
+                        <path d="M50 88 C18 78 8 38 28 16 C38 5 50 28 50 28 C50 28 62 5 72 16 C92 38 82 78 50 88" fill="url(#rg1)"/>
+                        <path d="M50 88 C22 80 15 50 28 30" fill="url(#rg1)" opacity="0.5"/>
+                        <path d="M50 88 C78 80 85 50 72 30" fill="url(#rg1)" opacity="0.5"/>
+                        <!-- Mid petals -->
+                        <path d="M28 38 C38 16 62 16 72 38 C82 60 62 80 50 80 C38 80 18 60 28 38" fill="url(#rg2)"/>
+                        <!-- Shadow fold left -->
+                        <path d="M28 38 C35 55 42 72 50 80 C42 72 30 60 28 38" fill="#7a0000" opacity="0.35"/>
+                        <!-- Inner petal -->
+                        <path d="M38 50 C43 32 57 32 62 50 C67 67 57 76 50 76 C43 76 33 67 38 50" fill="url(#rg3)"/>
+                        <!-- Center spiral -->
+                        <path d="M45 52 C46 44 54 44 55 52 C56 60 52 64 50 64 C48 64 44 60 45 52" fill="url(#rg4)"/>
+                        <!-- Highlight sheen -->
+                        <ellipse cx="44" cy="38" rx="5" ry="8" fill="white" opacity="0.18" transform="rotate(-20 44 38)" filter="url(#blur-soft)"/>
+                    </svg>
+                </div>
 
-            <!-- Falling Petal -->
-            <div
-                class="absolute top-16 left-1/2 -ml-3 z-0 falling-petal-container"
-            >
+                <!-- Glowing particles -->
+                <div
+                    class="absolute top-12 w-2 h-2 bg-yellow-200 rounded-full blur-[2px] animate-pulse shadow-[0_0_10px_#fff]"
+                >
+                </div>
+
+                <!-- Falling Petal 1 -->
+                <div class="absolute top-16 left-1/2 -ml-3 z-0">
+                    <svg
+                        class="w-4 h-4 text-[#c01515] drop-shadow-md falling-petal petal-1"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12 2 C8 2 4 6 4 11 C4 16 8 21 12 22 C16 21 20 16 20 11 C20 6 16 2 12 2 Z"
+                        ></path>
+                    </svg>
+                </div>
+
+                <!-- Falling Petal 2 (delayed) -->
+                <div class="absolute top-14 left-1/2 ml-1 z-0">
+                    <svg
+                        class="w-3 h-3 text-[#a01212] drop-shadow-md falling-petal petal-2"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M12 2 C9 2 5 5 5 10 C5 15 9 21 12 22 C15 21 19 15 19 10 C19 5 15 2 12 2 Z"
+                        ></path>
+                    </svg>
+                </div>
+
+                <!-- Fallen Petal -->
                 <svg
-                    class="w-4 h-4 text-[#c01515] drop-shadow-md falling-petal"
+                    class="absolute bottom-2 left-6 w-5 h-5 text-[#a01212] drop-shadow-md z-10"
+                    style="transform: rotate(-15deg) scaleY(0.5);"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
@@ -166,19 +205,6 @@
                     ></path>
                 </svg>
             </div>
-
-            <!-- Fallen Petal -->
-            <svg
-                class="absolute bottom-2 left-6 w-5 h-5 text-[#a01212] drop-shadow-md z-10"
-                style="transform: rotate(-15deg) scaleY(0.5);"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                ></path>
-            </svg>
         </div>
     </div>
 </section>
@@ -186,30 +212,71 @@
 <style>
     @keyframes fall {
         0% {
-            transform: translateY(0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
             opacity: 0;
         }
-        10% {
+        8% {
             opacity: 1;
         }
+        25% {
+            transform: translate(-8px, 28px) rotate(20deg);
+        }
+        50% {
+            transform: translate(10px, 58px) rotate(-15deg);
+        }
+        75% {
+            transform: translate(-5px, 88px) rotate(35deg);
+        }
+        92% {
+            opacity: 0.6;
+        }
         100% {
-            transform: translateY(110px) rotate(60deg);
+            transform: translate(6px, 120px) rotate(55deg);
             opacity: 0;
         }
     }
-    @keyframes sway {
-        0%,
-        100% {
-            transform: translateX(0);
-        }
-        50% {
-            transform: translateX(-15px);
-        }
-    }
-    .falling-petal-container {
-        animation: sway 6s ease-in-out infinite;
-    }
     .falling-petal {
-        animation: fall 6s ease-in-out infinite;
+        animation: fall 3.5s ease-in-out infinite;
+    }
+    .petal-2 {
+        animation-delay: 1.7s;
+        animation-duration: 4.1s;
     }
 </style>
+
+<script>
+    // Fecha del evento: 24 de Octubre de 2026, 18:00 (6:00 PM) hora local
+    const eventDate = new Date('2026-10-24T18:00:00').getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const difference = eventDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+            // Actualizar el DOM
+            const daysElement = document.getElementById('countdown-days');
+            const hoursElement = document.getElementById('countdown-hours');
+            const minutesElement = document.getElementById('countdown-minutes');
+
+            if (daysElement) daysElement.innerText = days.toString().padStart(2, '0');
+            if (hoursElement) hoursElement.innerText = hours.toString().padStart(2, '0');
+            if (minutesElement) minutesElement.innerText = minutes.toString().padStart(2, '0');
+        } else {
+            // Evento ya ocurrió
+            ['countdown-days', 'countdown-hours', 'countdown-minutes'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.innerText = '00';
+            });
+        }
+    };
+
+    // Actualizar inmediatamente y luego cada minuto (ya que no hay segundos)
+    updateCountdown();
+    // Como eliminamos los segundos, actualizar cada minuto en el segundo 0 es suficiente. 
+    // Por simplicidad de sincronización, actualizamos cada segundo igualmente.
+    setInterval(updateCountdown, 1000);
+</script>

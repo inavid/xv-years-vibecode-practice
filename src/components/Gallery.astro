@@ -1,70 +1,100 @@
 ---
 // Gallery.astro
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>(
+    '../assets/images/nicole_gallery/*.{jpg,jpeg,png,gif,GIF,JPG,webp}'
+);
+
+const images = await Promise.all(
+    Object.entries(imageFiles)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(async ([, loader]) => {
+            const mod = await loader();
+            return mod.default;
+        })
+);
 ---
 
 <section class="py-24 bg-[var(--color-bg-overlay-dark)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="font-playfair text-4xl md:text-5xl text-text-main mb-4">
-            Nuestros Momentos
+            Mis Momentos
         </h2>
         <div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mb-16"></div>
 
         <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px] bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-sm border border-white/20 shadow-xl"
+            class="reveal-card slide-from-left grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px] bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-sm border border-white/20 shadow-xl"
         >
-            <!-- Image 1 -->
-            <div
-                class="col-span-2 row-span-2 relative group overflow-hidden rounded-sm"
-            >
-                <img
-                    src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2670&auto=format&fit=crop"
-                    alt="Galería 1"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                >
+            <!-- Image 1: featured large -->
+            {images[0] && (
+                <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[0].src}
+                        alt="Galería 1"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-            </div>
+            )}
 
             <!-- Image 2 -->
-            <div class="relative group overflow-hidden rounded-sm">
-                <img
-                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2669&auto=format&fit=crop"
-                    alt="Galería 2"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                >
+            {images[1] && (
+                <div class="relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[1].src}
+                        alt="Galería 2"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-            </div>
+            )}
 
             <!-- Image 3 -->
-            <div class="relative group overflow-hidden rounded-sm">
-                <img
-                    src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2670&auto=format&fit=crop"
-                    alt="Galería 3"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                >
+            {images[2] && (
+                <div class="relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[2].src}
+                        alt="Galería 3"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-            </div>
+            )}
 
-            <!-- Image 4 -->
-            <div class="col-span-2 relative group overflow-hidden rounded-sm">
-                <img
-                    src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2670&auto=format&fit=crop"
-                    alt="Galería 4"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                >
+            <!-- Image 4: wide -->
+            {images[3] && (
+                <div class="col-span-2 relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[3].src}
+                        alt="Galería 4"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-            </div>
+            )}
+
+            <!-- Image 5 -->
+            {images[4] && (
+                <div class="relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[4].src}
+                        alt="Galería 5"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+            )}
+
+            <!-- Image 6 -->
+            {images[5] && (
+                <div class="relative group overflow-hidden rounded-sm">
+                    <img
+                        src={images[5].src}
+                        alt="Galería 6"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+            )}
         </div>
     </div>
 </section>
