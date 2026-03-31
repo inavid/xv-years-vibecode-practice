@@ -15,15 +15,21 @@ const { theme } = colorsData;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Invitación de XV Años" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body
-		class="antialiased overflow-x-hidden min-h-screen bg-fixed bg-cover bg-center"
-		style={`background-image: url('/background_nicole_2.jpg'); --color-primary: ${theme.primary}; --color-secondary: ${theme.secondary}; --color-text-main: ${theme.textMain}; --color-bg-overlay-light: ${theme.bgOverlayLight}; --color-bg-overlay-dark: ${theme.bgOverlayDark};`}
+		class="antialiased overflow-x-hidden min-h-screen"
+		style={`--color-primary: ${theme.primary}; --color-secondary: ${theme.secondary}; --color-text-main: ${theme.textMain}; --color-bg-overlay-light: ${theme.bgOverlayLight}; --color-bg-overlay-dark: ${theme.bgOverlayDark};`}
 	>
+		<!-- Fixed background workaround for iOS Safari (bg-fixed is broken on mobile) -->
+		<div
+			class="fixed inset-0 -z-10 bg-cover bg-center"
+			style="background-image: url('/background_nicole_2.jpg');"
+		></div>
+
 		<main class="max-w-[100vw] overflow-hidden">
 			<slot />
 		</main>
