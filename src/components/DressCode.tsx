@@ -1,11 +1,12 @@
 import bellaPose from '../assets/images/bella_pose.png';
 import beastPose from '../assets/images/beast_pose.png';
+import CornerFrameCSS from './CornerFrameCSS';
 
 export default function DressCode() {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-[var(--color-bg-overlay-dark)] flex flex-col items-center">
       {/* Background Ornament SVGs */}
-      <div className="relative z-10 flex flex-col items-center w-full max-w-4xl px-4">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div className="text-center mb-16">
           <h2 className="font-playfair text-4xl md:text-5xl text-text-main mb-4">
@@ -15,7 +16,8 @@ export default function DressCode() {
         </div>
 
         {/* Characters Card */}
-        <div className="flex flex-col items-center gap-8 w-full reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-sm border border-white/20 shadow-xl">
+        <div className="flex flex-col items-center gap-8 w-full mx-auto reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
+          <CornerFrameCSS />
           {/* Row 1: FORMAL */}
           <h3 className="text-[#C5A880] text-lg md:text-xl font-inter tracking-[0.3em] font-semibold">
             FORMAL

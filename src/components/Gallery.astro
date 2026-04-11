@@ -14,87 +14,162 @@ const images = await Promise.all(
 );
 ---
 
-<section class="py-24 bg-[var(--color-bg-overlay-dark)]">
+<section class="py-24 bg-[var(--color-bg-overlay-dark)] relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="font-playfair text-4xl md:text-5xl text-text-main mb-4">
             Mis Momentos
         </h2>
         <div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mb-16"></div>
 
-        <div
-            class="reveal-card slide-from-left grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px] bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-sm border border-white/20 shadow-xl"
-        >
-            <!-- Image 1: featured large -->
-            {images[0] && (
-                <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[0].src}
-                        alt="Galería 1"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
+        <div class="relative reveal-card slide-from-left w-full group/carousel">
+            <!-- Navigation Left -->
+            <button
+                id="gallery-prev"
+                class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none"
+                aria-label="Previous image"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </button>
 
-            <!-- Image 2 -->
-            {images[1] && (
-                <div class="relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[1].src}
-                        alt="Galería 2"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
+            <!-- Carousel Container -->
+            <div
+                id="gallery-carousel"
+                class="w-full flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory py-4 px-2 md:p-8 bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-xl scroll-smooth no-scrollbar"
+                style="scrollbar-width: none; -ms-overflow-style: none;"
+            >
+                {images.map((img, i) => (
+                    <div class="gallery-item relative group overflow-hidden rounded-[5px] flex-none w-[80vw] h-[60vh] md:w-[600px] md:h-[700px] snap-center shrink-0 bg-black/20 text-transparent" data-index={i}>
+                        <img
+                            src={img.src}
+                            alt={`Galería ${i + 1}`}
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            loading={i < 2 ? "eager" : "lazy"}
+                        />
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                ))}
+            </div>
 
-            <!-- Image 3 -->
-            {images[2] && (
-                <div class="relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[2].src}
-                        alt="Galería 3"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
+            <!-- Navigation Right -->
+            <button
+                id="gallery-next"
+                class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none"
+                aria-label="Next image"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
 
-            <!-- Image 4: wide -->
-            {images[3] && (
-                <div class="col-span-2 relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[3].src}
-                        alt="Galería 4"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
-
-            <!-- Image 5 -->
-            {images[4] && (
-                <div class="relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[4].src}
-                        alt="Galería 5"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
-
-            <!-- Image 6 -->
-            {images[5] && (
-                <div class="relative group overflow-hidden rounded-sm">
-                    <img
-                        src={images[5].src}
-                        alt="Galería 6"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-            )}
+            <!-- Pagination Dots -->
+            <div class="flex justify-center flex-wrap gap-2 md:gap-3 mt-8" id="gallery-dots">
+                {images.map((_, i) => (
+                    <button
+                        class={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#C5A880] scale-125' : 'bg-white/30 hover:bg-white/50'}`}
+                        data-dot-index={i}
+                        aria-label={`Go to slide ${i + 1}`}
+                    ></button>
+                ))}
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+<script>
+    const setupGallery = () => {
+        const carousel = document.getElementById('gallery-carousel');
+        const prevBtn = document.getElementById('gallery-prev') as HTMLButtonElement | null;
+        const nextBtn = document.getElementById('gallery-next') as HTMLButtonElement | null;
+        const dots = document.querySelectorAll('#gallery-dots button');
+        const items = document.querySelectorAll('.gallery-item');
+        
+        if (!carousel || !prevBtn || !nextBtn || items.length === 0) return;
+
+        const updateButtonsAndDots = () => {
+            const scrollLeft = carousel.scrollLeft;
+            const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+            
+            // Buttons state
+            prevBtn.disabled = scrollLeft <= 10;
+            nextBtn.disabled = scrollLeft >= maxScrollLeft - 10;
+
+            // Find active index
+            let activeIndex = 0;
+            let minDistance = Infinity;
+
+            items.forEach((item, index) => {
+                const el = item as HTMLElement;
+                const rect = el.getBoundingClientRect();
+                const carouselRect = carousel.getBoundingClientRect();
+                const itemCenter = (rect.left - carouselRect.left) + rect.width / 2;
+                const targetCenter = carouselRect.width / 2;
+                
+                const distance = Math.abs(itemCenter - targetCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    activeIndex = index;
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                const el = dot as HTMLElement;
+                if (index === activeIndex) {
+                    el.className = "w-2.5 h-2.5 rounded-full transition-all duration-300 bg-[#C5A880] scale-125";
+                } else {
+                    el.className = "w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/50";
+                }
+            });
+        };
+
+        // Scroll events
+        carousel.addEventListener('scroll', () => {
+            requestAnimationFrame(updateButtonsAndDots);
+        });
+
+        // Click on Prev
+        prevBtn.addEventListener('click', () => {
+            const itemWidth = (items[0] as HTMLElement).clientWidth;
+            // Gap is around 1rem to 1.5rem depending on viewport, let's just scroll by itemWidth + standard gap
+            carousel.scrollBy({ left: -(itemWidth + 16), behavior: 'smooth' });
+        });
+
+        // Click on Next
+        nextBtn.addEventListener('click', () => {
+            const itemWidth = (items[0] as HTMLElement).clientWidth;
+            carousel.scrollBy({ left: itemWidth + 16, behavior: 'smooth' });
+        });
+
+        // Click on Dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const itemEl = items[index] as HTMLElement;
+                const rect = itemEl.getBoundingClientRect();
+                const carouselRect = carousel.getBoundingClientRect();
+                const itemCenter = (rect.left - carouselRect.left) + rect.width / 2;
+                const targetCenter = carouselRect.width / 2;
+                const offset = itemCenter - targetCenter;
+                
+                carousel.scrollBy({ left: offset, behavior: 'smooth' });
+            });
+        });
+
+        // Initial setup
+        updateButtonsAndDots();
+        
+        // Timeout to handle any layout shifts during initial load
+        setTimeout(updateButtonsAndDots, 100);
+    };
+
+    // Run setup on load and Astro page transitions
+    setupGallery();
+    document.addEventListener('astro:page-load', setupGallery);
+</script>

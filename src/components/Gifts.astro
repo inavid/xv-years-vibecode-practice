@@ -1,9 +1,10 @@
 ---
 // Gifts.astro
+import CornerFrameCSS from './CornerFrameCSS';
 ---
 
 <section class="py-24 bg-[var(--color-bg-overlay-dark)] relative">
-    <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="mb-10 flex justify-center text-[#C5A880]">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +33,9 @@
         </p>
 
         <div
-            class="reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-sm border border-white/20 shadow-xl inline-block w-full max-w-lg text-left"
+            class="reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto text-left block relative"
         >
+            <CornerFrameCSS />
             <div class="mb-6">
                 <p
                     class="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-1"
