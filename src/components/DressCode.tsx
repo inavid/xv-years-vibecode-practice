@@ -1,5 +1,5 @@
-import bellaPose from '../assets/images/bella_pose.png';
-import beastPose from '../assets/images/beast_pose.png';
+import womenImage from '../assets/images/women.jpeg';
+import menImage from '../assets/images/men.jpeg';
 import CornerFrameCSS from './CornerFrameCSS';
 
 export default function DressCode() {
@@ -28,10 +28,10 @@ export default function DressCode() {
             {/* Woman */}
             <div className="flex flex-col items-center relative">
               <img
-                src={bellaPose.src}
+                src={womenImage.src}
                 alt="Mujer"
                 className="w-36 md:w-48 mb-6 drop-shadow-md"
-                style={{ objectPosition: 'left center', objectFit: 'cover' }}
+                style={{ objectPosition: 'center', objectFit: 'cover' }}
               />
               <span
                 className="absolute bottom-16 md:bottom-20 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
@@ -46,13 +46,13 @@ export default function DressCode() {
             {/* Man */}
             <div className="flex flex-col items-center relative">
               <img
-                src={beastPose.src}
+                src={menImage.src}
                 alt="Hombre"
                 className="w-36 md:w-48 mb-6 drop-shadow-md"
-                style={{ objectPosition: 'right center', objectFit: 'cover', transform: 'scaleX(-1)' }}
+                style={{ objectPosition: 'center', objectFit: 'cover' }}
               />
               <span
-                className="absolute bottom-12 md:bottom-16 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
+                className="absolute bottom-16 md:bottom-20 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
                 style={{ textShadow: "0 0 10px #000, 0 0 20px #fff" }}
               >
                 H
@@ -64,7 +64,7 @@ export default function DressCode() {
           </div>
 
           {/* Row 3: Rule text */}
-          <p className="text-[#C5A880] font-playfair italic text-xs md:text-sm tracking-[0.1em] text-center max-w-sm leading-relaxed">
+          <p className="text-[#D4AF37] font-playfair italic text-xs md:text-sm tracking-[0.1em] text-center max-w-sm leading-relaxed font-bold" style={{ textShadow: "0 0 8px rgba(212, 175, 55, 0.5)" }}>
             * El color amarillo se reserva exclusivamente para la quinceañera
           </p>
         </div>

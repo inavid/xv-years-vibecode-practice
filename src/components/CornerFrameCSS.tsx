@@ -23,29 +23,29 @@ const CornerDecor = ({ isLeft = false }: { isLeft?: boolean }) => (
                     <circle cx="0" cy="0" r="15" fill="#f8f9fa" />
                     <circle cx="5" cy="-5" r="12" fill="#e9ecef" />
                     <circle cx="-5" cy="5" r="10" fill="#dee2e6" />
-                    <circle cx="0" cy="0" r="4" fill="#e9c46a" />
+                    <circle cx="0" cy="0" r="4" fill="#8b1a3a" />
                 </g>
 
                 {/* Small Sunflower */}
                 <g transform="translate(-10, -30) scale(0.6)">
                     {[...Array(12)].map((_, i) => (
-                        <ellipse key={`s1-${i}`} cx="0" cy="-22" rx="8" ry="22" fill="#f4a261" transform={`rotate(${i * 30})`} />
+                        <ellipse key={`s1-${i}`} cx="0" cy="-22" rx="8" ry="22" fill="#c41e3a" transform={`rotate(${i * 30})`} />
                     ))}
                     {[...Array(12)].map((_, i) => (
-                        <ellipse key={`s2-${i}`} cx="0" cy="-20" rx="6" ry="18" fill="#e9c46a" transform={`rotate(${i * 30 + 15})`} />
+                        <ellipse key={`s2-${i}`} cx="0" cy="-20" rx="6" ry="18" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
                     ))}
-                    <circle cx="0" cy="0" r="14" fill="#38220f" />
+                    <circle cx="0" cy="0" r="14" fill="#4a0e0e" />
                 </g>
 
                 {/* Main Sunflower */}
                 <g transform="translate(10, 10) scale(0.9)">
                     {[...Array(14)].map((_, i) => (
-                        <ellipse key={`m1-${i}`} cx="0" cy="-28" rx="9" ry="28" fill="#f4a261" transform={`rotate(${i * (360/14)})`} />
+                        <ellipse key={`m1-${i}`} cx="0" cy="-28" rx="9" ry="28" fill="#c41e3a" transform={`rotate(${i * (360/14)})`} />
                     ))}
                     {[...Array(14)].map((_, i) => (
-                        <ellipse key={`m2-${i}`} cx="0" cy="-25" rx="7" ry="24" fill="#e9c46a" transform={`rotate(${i * (360/14) + (360/28)})`} />
+                        <ellipse key={`m2-${i}`} cx="0" cy="-25" rx="7" ry="24" fill="#8b1a3a" transform={`rotate(${i * (360/14) + (360/28)})`} />
                     ))}
-                    <circle cx="0" cy="0" r="20" fill="#38220f" />
+                    <circle cx="0" cy="0" r="20" fill="#4a0e0e" />
                 </g>
             </g>
         </svg>

@@ -1,29 +1,157 @@
 import React from 'react';
-import sunflowers from '../assets/images/sunflowers.jpg';
 
 export default function TopFrameImage({ heightClass = 'h-[10%]' }: { heightClass?: string }) {
   return (
     <div className={`pointer-events-none absolute inset-x-0 top-0 z-0 opacity-90 overflow-hidden ${heightClass}`}>
-      {/* 
-        We use the imported image and apply a gradient mask 
-        so the bottom edge of the image fades perfectly into the card.
-        The image has a white solid background, so using mask-image 
-        or mix-blend-multiply works exceptionally well on mostly dark layout 
-        or if we want the white to become transparent, mix-blend-multiply 
-        will make the white transparent and keep only the dark parts.
-        Wait, since our card is bg-white/10 over a dark themed background, 
-        making white transparent via mix-blend-multiply will work beautifully. 
-      */}
-      <div 
-        className="w-full h-full bg-top"
-        style={{
-          backgroundImage: `url(${sunflowers.src})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
-          maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
-        }}
-      />
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet" className="w-full h-full text-[#97a97c]" style={{ filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.2))" }}>
+        <g transform="scale(0.5) translate(0, -10)">
+          {/* Vines */}
+          <path d="M0,20 Q100,50 200,10 C250,-10 300,40 400,20 Q500,-10 600,30 T800,10 Q900,40 1000,10" fill="none" stroke="#6b705c" strokeWidth="4" strokeLinecap="round" />
+          <path d="M1000,20 Q1100,50 1200,10 C1250,-10 1300,40 1400,20 Q1500,-10 1600,30 T1800,10 Q1900,40 2000,10" fill="none" stroke="#6b705c" strokeWidth="4" strokeLinecap="round" />
+
+          {/* Leaves */}
+          <path d="M100,20 C100,60 80,100 100,120 C120,100 100,60 100,20" fill="currentColor" />
+          <path d="M150,30 C160,70 140,110 150,130 C160,110 160,70 150,30" fill="#a5a58d" />
+          <path d="M50,10 C40,40 20,70 30,80 C40,70 50,40 50,10" fill="currentColor" />
+
+          <path d="M300,20 C310,80 280,120 300,150 C320,120 310,80 300,20" fill="currentColor" />
+          <path d="M400,20 C400,60 380,100 400,120 C420,100 400,60 400,20" fill="#a5a58d" />
+          <path d="M450,30 C460,70 440,110 450,130 C460,110 460,70 450,30" fill="currentColor" />
+
+          <path d="M600,20 C610,80 580,120 600,150 C620,120 610,80 600,20" fill="#a5a58d" />
+          <path d="M700,20 C700,60 680,100 700,120 C720,100 700,60 700,20" fill="currentColor" />
+          <path d="M850,30 C860,70 840,110 850,130 C860,110 860,70 850,30" fill="#a5a58d" />
+
+          <path d="M900,20 C910,80 880,120 900,150 C920,120 910,80 900,20" fill="currentColor" />
+          <path d="M1100,20 C1110,80 1080,120 1100,150 C1120,120 1110,80 1100,20" fill="currentColor" />
+          <path d="M1200,20 C1200,60 1180,100 1200,120 C1220,100 1200,60 1200,20" fill="#a5a58d" />
+          <path d="M1300,20 C1310,80 1280,120 1300,150 C1320,120 1310,80 1300,20" fill="currentColor" />
+          <path d="M1500,20 C1510,80 1480,120 1500,150 C1520,120 1510,80 1500,20" fill="currentColor" />
+          <path d="M1600,20 C1600,60 1580,100 1600,120 C1620,100 1600,60 1600,20" fill="#a5a58d" />
+          <path d="M1800,20 C1810,80 1780,120 1800,150 C1820,120 1810,80 1800,20" fill="currentColor" />
+
+          {/* Red Roses */}
+          <g transform="translate(180, 20)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r1p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r1p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(350, 40) scale(1.2)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r2p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r2p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(500, 15) scale(0.8)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r3p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r3p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(650, 30)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r4p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r4p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(850, 20) scale(1.1)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r5p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r5p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(1050, 35) scale(0.9)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r6p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r6p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(1300, 25)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r7p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r7p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(1500, 40) scale(1.15)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r8p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r8p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(1750, 20) scale(0.85)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r9p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r9p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(1900, 30)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r10p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r10p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(0, 30) scale(0.9)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r11p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r11p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+
+          <g transform="translate(2000, 40) scale(1)">
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r12p1-${i}`} cx="0" cy="-25" rx="10" ry="25" fill="#c41e3a" transform={`rotate(${i * 30})`} />
+            ))}
+            {[...Array(12)].map((_, i) => (
+              <ellipse key={`r12p2-${i}`} cx="0" cy="-25" rx="8" ry="20" fill="#8b1a3a" transform={`rotate(${i * 30 + 15})`} />
+            ))}
+            <circle cx="0" cy="0" r="18" fill="#4a0e0e" />
+          </g>
+        </g>
+      </svg>
     </div>
   );
 }
