@@ -1,5 +1,5 @@
-import womenImage from '../assets/images/women.jpeg';
-import menImage from '../assets/images/men.jpeg';
+import womenImage from '../assets/images/bella_pose.jpg';
+import menImage from '../assets/images/beast_pose.jpg';
 
 export default function DressCode() {
   return (
@@ -28,8 +28,8 @@ export default function DressCode() {
               <img
                 src={womenImage.src}
                 alt="Mujer"
-                className="w-40 h-56 md:w-56 md:h-72 mb-6 drop-shadow-md"
-                style={{ objectPosition: 'center', objectFit: 'cover' }}
+                className="w-40 md:w-56 mb-6 drop-shadow-md"
+                style={{ objectFit: 'contain' }}
               />
               <span
                 className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
@@ -46,8 +46,8 @@ export default function DressCode() {
               <img
                 src={menImage.src}
                 alt="Hombre"
-                className="w-40 h-56 md:w-56 md:h-72 mb-6 drop-shadow-md"
-                style={{ objectPosition: 'center', objectFit: 'cover' }}
+                className="w-40 md:w-56 mb-6 drop-shadow-md"
+                style={{ objectFit: 'contain' }}
               />
               <span
                 className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
