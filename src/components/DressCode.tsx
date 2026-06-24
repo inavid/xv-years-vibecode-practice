@@ -30,17 +30,17 @@ export default function DressCode() {
               <img
                 src={womenImage.src}
                 alt="Mujer"
-                className="w-36 md:w-48 mb-6 drop-shadow-md"
+                className="w-40 h-56 md:w-56 md:h-72 mb-6 drop-shadow-md"
                 style={{ objectPosition: 'center', objectFit: 'cover' }}
               />
               <span
-                className="absolute bottom-16 md:bottom-20 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
+                className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
                 style={{ textShadow: "0 0 10px #000, 0 0 20px #fff" }}
               >
                 M
               </span>
               <p className="text-text-main font-inter text-sm md:text-base tracking-[0.2em] font-bold text-center leading-relaxed">
-                VESTIDO<br />LARGO
+                VESTIDO
               </p>
             </div>
             {/* Man */}
@@ -48,11 +48,11 @@ export default function DressCode() {
               <img
                 src={menImage.src}
                 alt="Hombre"
-                className="w-36 md:w-48 mb-6 drop-shadow-md"
+                className="w-40 h-56 md:w-56 md:h-72 mb-6 drop-shadow-md"
                 style={{ objectPosition: 'center', objectFit: 'cover' }}
               />
               <span
-                className="absolute bottom-16 md:bottom-20 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
+                className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
                 style={{ textShadow: "0 0 10px #000, 0 0 20px #fff" }}
               >
                 H
@@ -65,7 +65,7 @@ export default function DressCode() {
 
           {/* Row 3: Rule text */}
           <p className="text-[#D4AF37] font-playfair italic text-xs md:text-sm tracking-[0.1em] text-center max-w-sm leading-relaxed font-bold" style={{ textShadow: "0 0 8px rgba(212, 175, 55, 0.5)" }}>
-            * El color amarillo se reserva exclusivamente para la quinceañera
+            * El color amarillo y dorado se reserva exclusivamente para la quinceañera
           </p>
         </div>
       </div>

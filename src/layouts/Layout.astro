@@ -4,20 +4,41 @@ import colorsData from "../data/colors.json";
 
 interface Props {
 	title: string;
+	description?: string;
+	socialImage?: string;
+	socialImageAlt?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Nicole celebra sus XV Años. Acompáñanos a celebrar un día inolvidable.",
+	socialImage = "/social-share.png",
+	socialImageAlt = "Portada de la invitación de Nicole para compartir en redes sociales",
+} = Astro.props;
 const { theme } = colorsData;
+const siteUrl = Astro.site?.toString();
+const socialImageUrl = siteUrl ? new URL(socialImage, siteUrl).toString() : socialImage;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Invitación de XV Años" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+			<meta property="og:image" content={socialImageUrl} />
+			<meta property="og:image:alt" content={socialImageAlt} />
+			<meta property="og:image:width" content="1200" />
+			<meta property="og:image:height" content="630" />
+			<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageUrl} />
 		<title>{title}</title>
 	</head>
 	<body
