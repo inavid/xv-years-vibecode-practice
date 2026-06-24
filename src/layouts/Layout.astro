@@ -81,7 +81,6 @@ const pageUrl = Astro.url?.href;
 
 		<!-- Scroll-reveal IntersectionObserver -->
 		<script>
-			const cards = document.querySelectorAll('.reveal-card');
 			const observer = new IntersectionObserver(
 				(entries) => {
 					entries.forEach((entry) => {
@@ -94,7 +93,24 @@ const pageUrl = Astro.url?.href;
 				},
 				{ threshold: 0.15 }
 			);
-			cards.forEach((card) => observer.observe(card));
+
+			function observeCards() {
+				document.querySelectorAll('.reveal-card').forEach((card) => {
+					observer.observe(card);
+				});
+			}
+
+			// Observe cards already in the DOM
+			observeCards();
+
+			// Re-observe after React islands hydrate
+			document.addEventListener('astro:load', observeCards);
+
+			// Also catch any cards added dynamically via MutationObserver
+			new MutationObserver(() => observeCards()).observe(document.body, {
+				childList: true,
+				subtree: true,
+			});
 		</script>
 	</body>
 </html>
