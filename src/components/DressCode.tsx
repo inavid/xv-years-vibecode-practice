@@ -15,7 +15,7 @@ export default function DressCode() {
         </div>
 
         {/* Characters Card */}
-        <div className="flex flex-col items-center gap-8 w-full max-w-5xl mx-auto reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
+        <div className="flex flex-col items-center gap-8 w-full max-w-5xl mx-auto bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
           {/* Row 1: FORMAL */}
           <h3 className="text-[#C5A880] text-lg md:text-xl font-inter tracking-[0.3em] font-semibold">
             FORMAL

@@ -18,7 +18,7 @@ export default function Gifts() {
       <section className="py-24 bg-[var(--color-bg-overlay-dark)] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Card */}
-          <div className="reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto flex flex-col items-center gap-8">
+          <div className="bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto flex flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="flex justify-center text-[#C5A880]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-16 h-16">
