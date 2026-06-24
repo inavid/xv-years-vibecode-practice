@@ -1,6 +1,5 @@
 import womenImage from '../assets/images/women.jpeg';
 import menImage from '../assets/images/men.jpeg';
-import CornerFrameCSS from './CornerFrameCSS';
 
 export default function DressCode() {
   return (
@@ -17,7 +16,6 @@ export default function DressCode() {
 
         {/* Characters Card */}
         <div className="flex flex-col items-center gap-8 w-full mx-auto reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
-          <CornerFrameCSS />
           {/* Row 1: FORMAL */}
           <h3 className="text-[#C5A880] text-lg md:text-xl font-inter tracking-[0.3em] font-semibold">
             FORMAL
