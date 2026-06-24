@@ -7,73 +7,71 @@
 >
     <!-- Decorative elements -->
     <div
-        class="absolute top-0 right-0 w-64 h-64 bg-[#C5A880]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
+        class="absolute top-0 right-0 w-72 h-72 bg-[#C5A880]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
     >
     </div>
     <div
-        class="absolute bottom-0 left-0 w-64 h-64 bg-[#C5A880]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
+        class="absolute bottom-0 left-0 w-72 h-72 bg-[#C5A880]/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
     >
     </div>
 
     <!-- Scroll-reveal card (slides from right) -->
     <div
-        class="reveal-card slide-from-right max-w-7xl w-full mx-auto bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-2xl px-8 py-12 md:px-14 md:py-16 relative z-10"
+        class="reveal-card slide-from-right max-w-5xl w-full mx-auto rounded-[32px] border border-[#C5A880]/45 bg-[rgba(12,10,8,0.82)] px-6 py-8 md:px-10 md:py-12 shadow-[0_24px_80px_rgba(0,0,0,0.35)] relative z-10 overflow-hidden"
     >
-        <div class="flex flex-col items-center text-center">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(197,168,128,0.08),transparent_45%)]"></div>
+        <div class="relative flex flex-col items-center text-center">
             <h2
-                class="font-playfair text-3xl md:text-4xl text-text-main mb-4 italic"
+                class="font-playfair text-4xl md:text-5xl text-white mb-4 italic leading-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.85)]"
+                style="text-shadow: 0 2px 14px rgba(0,0,0,0.9);"
             >
                 El tiempo se acerca
             </h2>
-            <p
-                class="font-inter text-text-main/70 mb-12 uppercase tracking-[0.2em] text-sm"
-            >
-                Faltan
-            </p>
+            
 
             <!-- Static Visual Countdown -->
             <div class="flex flex-wrap justify-center gap-4 md:gap-8">
                 <div class="flex flex-col items-center">
                     <div
-                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-xl flex items-center justify-center"
+                        class="w-20 h-24 md:w-28 md:h-32 rounded-[20px] border border-white/12 bg-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-[0_18px_50px_rgba(0,0,0,0.35)] flex items-center justify-center"
                     >
                         <span
-                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            class="font-playfair text-4xl md:text-5xl text-[#F1E9DB]"
                             id="countdown-days">45</span
                         >
                     </div>
                     <span
-                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        class="mt-4 font-inter text-[11px] tracking-[0.28em] uppercase text-white/60"
                         >Días</span
                     >
                 </div>
 
                 <div class="flex flex-col items-center">
                     <div
-                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-xl flex items-center justify-center"
+                        class="w-20 h-24 md:w-28 md:h-32 rounded-[20px] border border-white/12 bg-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-[0_18px_50px_rgba(0,0,0,0.35)] flex items-center justify-center"
                     >
                         <span
-                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            class="font-playfair text-4xl md:text-5xl text-[#F1E9DB]"
                             id="countdown-hours">12</span
                         >
                     </div>
                     <span
-                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        class="mt-4 font-inter text-[11px] tracking-[0.28em] uppercase text-white/60"
                         >Horas</span
                     >
                 </div>
 
                 <div class="flex flex-col items-center">
                     <div
-                        class="w-20 h-24 md:w-28 md:h-32 bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-xl flex items-center justify-center"
+                        class="w-20 h-24 md:w-28 md:h-32 rounded-[20px] border border-white/12 bg-[rgba(255,255,255,0.08)] backdrop-blur-md shadow-[0_18px_50px_rgba(0,0,0,0.35)] flex items-center justify-center"
                     >
                         <span
-                            class="font-playfair text-4xl md:text-5xl text-[#C5A880]"
+                            class="font-playfair text-4xl md:text-5xl text-[#F1E9DB]"
                             id="countdown-minutes">30</span
                         >
                     </div>
                     <span
-                        class="mt-4 font-inter text-xs tracking-widest uppercase text-text-main/60"
+                        class="mt-4 font-inter text-[11px] tracking-[0.28em] uppercase text-white/60"
                         >Minutos</span
                     >
                 </div>
@@ -81,10 +79,10 @@
             </div>
 
             <!-- Magic Rose Animation -->
-            <div class="relative w-24 h-48 mt-10 flex justify-center items-end">
+            <div class="relative w-24 h-48 mt-10 flex justify-center items-end opacity-90">
                 <!-- Base -->
                 <div
-                    class="absolute bottom-[-4px] w-28 h-4 bg-gradient-to-r from-[#8b6b4a] via-[#c4a47a] to-[#8b6b4a] rounded-[50%] z-10 shadow-lg"
+                    class="absolute bottom-[-4px] w-28 h-4 bg-gradient-to-r from-[#6f563d] via-[#b8925d] to-[#6f563d] rounded-[50%] z-10 shadow-lg"
                 >
                 </div>
 
@@ -245,8 +243,8 @@
 </style>
 
 <script>
-    // Fecha del evento: 24 de Octubre de 2026, 18:00 (6:00 PM) hora local
-    const eventDate = new Date('2026-10-24T18:00:00').getTime();
+    // Fecha del evento: 24 de Octubre de 2026, 16:00 (4:00 PM) hora de Ciudad de México
+    const eventDate = new Date('2026-10-24T16:00:00-06:00').getTime();
 
     const updateCountdown = () => {
         const now = new Date().getTime();

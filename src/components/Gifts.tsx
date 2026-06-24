@@ -18,28 +18,24 @@ export default function Gifts() {
       <section className="py-24 bg-[var(--color-bg-overlay-dark)] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Card */}
-          <div className="bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto flex flex-col items-center gap-8">
-            <div className="flex flex-col items-center gap-4 text-center">
-              <div className="flex justify-center text-[#C5A880]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-16 h-16">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-                </svg>
-              </div>
+          <div
+            className="relative overflow-hidden bg-[rgba(12,10,8,0.82)] backdrop-blur-md p-8 md:p-14 rounded-[32px] border border-[#C5A880]/45 shadow-[0_24px_80px_rgba(0,0,0,0.35)] w-full max-w-5xl mx-auto flex flex-col items-center gap-8"
+            style={{ opacity: 1, transform: 'none' }}
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(197,168,128,0.08),transparent_45%)] pointer-events-none"></div>
 
-              <h2 className="font-playfair text-4xl md:text-5xl text-text-main">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h2 className="relative font-playfair text-4xl md:text-5xl text-white italic leading-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.85)]">
                 Mesa de Regalos
               </h2>
-              <p className="font-inter text-text-main/70 max-w-2xl leading-relaxed">
+              <p className="relative font-inter text-white/72 max-w-2xl leading-relaxed">
                 El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo, puedes hacerlo a través de la siguiente cuenta:
               </p>
-              <div className="w-16 h-px bg-[#C5A880]/60" />
+              <div className="relative w-16 h-px bg-[#C5A880]/60" />
             </div>
-            <p className="font-playfair italic text-text-main/90 text-xl md:text-2xl max-w-xl leading-relaxed">
-              "Tu compañía es el mejor regalo que podrías darme. Gracias por estar conmigo en esta fecha tan importante."
-            </p>
             <button
               onClick={() => setOpen(true)}
-              className="group inline-flex items-center gap-3 border border-[#C5A880] text-[#C5A880] hover:bg-[#C5A880] hover:text-white transition-all duration-300 font-inter tracking-widest text-xs uppercase px-8 py-4"
+              className="relative group inline-flex items-center gap-3 border border-[#C5A880] text-[#C5A880] hover:bg-[#C5A880] hover:text-white transition-all duration-300 font-inter tracking-widest text-xs uppercase px-8 py-4"
             >
               Quiero darte un detalle extra
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1">

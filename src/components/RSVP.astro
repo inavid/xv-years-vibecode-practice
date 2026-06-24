@@ -2,82 +2,79 @@
 // RSVP.astro
 ---
 
-<section class="py-24 bg-[var(--color-bg-overlay-dark)] text-white relative">
-    <!-- Elegant background pattern overlay placeholder -->
-    <div
-        class="absolute inset-0 opacity-10"
-        style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"
-    >
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h2 class="font-playfair text-4xl md:text-5xl mb-6">
-            Confirmación de Asistencia
-        </h2>
-        <p class="font-inter text-white/80 mb-12 font-light">
-            Por favor confirma tu asistencia antes del 10 de Octubre
-        </p>
-
+<section class="py-24 bg-[var(--color-bg-overlay-dark)] text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <form
-            class="reveal-card slide-from-left bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto text-left relative"
+            class="reveal-card slide-from-left w-full max-w-5xl mx-auto rounded-[36px] border border-white/20 bg-[rgba(255,255,255,0.10)] p-6 md:p-8 backdrop-blur-md shadow-[0_30px_90px_rgba(0,0,0,0.28)] relative overflow-hidden text-left"
             onsubmit="event.preventDefault(); alert('¡Gracias! (Esto es visual por ahora)');"
         >
-            <div class="mb-6">
-                <label
-                    for="name"
-                    class="block font-inter text-sm mb-2 uppercase tracking-widest text-white/90"
-                    >Nombre Completo</label
-                >
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Escribe tu nombre"
-                    class="w-full bg-white/5 border border-white/30 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white transition-colors"
-                    required
-                />
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_50%)] pointer-events-none"></div>
+
+            <div class="relative flex flex-col items-center text-center mb-10">
+                <h2 class="font-playfair text-4xl md:text-5xl text-white mb-4 italic leading-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.85)]">
+                    Confirmación de Asistencia
+                </h2>
+                <p class="font-inter text-white/80 max-w-2xl leading-relaxed">
+                    Por favor confirma tu asistencia antes del 10 de Octubre
+                </p>
+                <div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mt-6"></div>
             </div>
 
-            <div class="mb-6">
-                <label
-                    for="attendance"
-                    class="block font-inter text-sm mb-2 uppercase tracking-widest text-white/90"
-                    >¿Asistirás?</label
-                >
-                <select
-                    id="attendance"
-                    class="w-full bg-transparent border border-white/30 px-4 py-3 text-white focus:outline-none focus:border-white transition-colors appearance-none [&>option]:text-text-main"
-                >
-                    <option value="yes" class="text-text-main"
-                        >Sí, de honor asistiré</option
+            <div class="relative grid grid-cols-1 gap-6">
+                <div>
+                    <label
+                        for="name"
+                        class="block font-inter text-xs md:text-sm mb-2 uppercase tracking-[0.25em] text-white/80"
+                        >Nombre Completo</label
                     >
-                    <option value="no" class="text-text-main"
-                        >Lo siento, no podré asistir</option
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Escribe tu nombre"
+                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#C5A880] transition-colors"
+                        required
+                    />
+                </div>
+                <div>
+                    <label
+                        for="code"
+                        class="block font-inter text-xs md:text-sm mb-2 uppercase tracking-[0.25em] text-white/80"
+                        >Código</label
                     >
-                </select>
-            </div>
+                    <input
+                        type="text"
+                        id="code"
+                        placeholder="ARA-001"
+                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#C5A880] transition-colors"
+                        required
+                    />
+                </div>
+                <div>
+                    <label
+                        for="attendance"
+                        class="block font-inter text-xs md:text-sm mb-2 uppercase tracking-[0.25em] text-white/80"
+                        >¿Asistirás?</label
+                    >
+                    <select
+                        id="attendance"
+                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white focus:outline-none focus:border-[#C5A880] transition-colors appearance-none [&>option]:text-text-main"
+                    >
+                        <option value="yes" class="text-text-main">
+                            Sí, asistiré
+                        </option>
+                        <option value="no" class="text-text-main">
+                            Lo siento, no podré asistir
+                        </option>
+                    </select>
+                </div>
 
-            <div class="mb-8">
-                <label
-                    for="guests"
-                    class="block font-inter text-sm mb-2 uppercase tracking-widest text-white/90"
-                    >Número de pases</label
+                <button
+                    type="submit"
+                    class="relative mt-2 w-full rounded-full border border-[#C5A880] bg-transparent px-8 py-4 font-inter text-xs uppercase tracking-[0.25em] text-[#C5A880] transition-all duration-300 hover:bg-[#C5A880] hover:text-white"
                 >
-                <input
-                    type="number"
-                    id="guests"
-                    min="1"
-                    max="5"
-                    value="1"
-                    class="w-full bg-white/5 border border-white/30 px-4 py-3 text-white focus:outline-none focus:border-white transition-colors"
-                />
+                    Confirmar
+                </button>
             </div>
-
-            <button
-                type="submit"
-                class="w-full bg-white text-[#C5A880] py-4 font-inter text-sm uppercase tracking-[0.2em] hover:bg-white/90 transition-colors"
-            >
-                Confirmar
-            </button>
         </form>
     </div>
 </section>

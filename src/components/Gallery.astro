@@ -14,67 +14,79 @@ const images = await Promise.all(
 );
 ---
 
-<section class="py-24 bg-[var(--color-bg-overlay-dark)] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-playfair text-4xl md:text-5xl text-text-main mb-4">
-            Mis Momentos
-        </h2>
-        <div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mb-16"></div>
+<section class="py-24 bg-[var(--color-bg-overlay-dark)] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal-card slide-from-left w-full max-w-5xl mx-auto rounded-[36px] border border-white/20 bg-[rgba(255,255,255,0.10)] p-6 md:p-8 backdrop-blur-md shadow-[0_30px_90px_rgba(0,0,0,0.28)] relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_50%)] pointer-events-none"></div>
 
-        <div class="relative reveal-card slide-from-left w-full group/carousel">
-            <!-- Navigation Left -->
-            <button
-                id="gallery-prev"
-                class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none"
-                aria-label="Previous image"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                </svg>
-            </button>
+            <div class="relative">
+                <div class="text-center mb-10">
+                    <h2 class="font-playfair text-4xl md:text-5xl text-white mb-4 italic leading-tight drop-shadow-[0_3px_14px_rgba(0,0,0,0.85)]">
+                        Mis Momentos
+                    </h2>
+                    <p class="font-inter text-white/80 max-w-2xl mx-auto leading-relaxed">
+                        Algunos instantes especiales que quiero compartir contigo
+                    </p>
+                    <div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mt-6"></div>
+                </div>
 
-            <!-- Carousel Container -->
-            <div
-                id="gallery-carousel"
-                class="w-full flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory py-4 px-2 md:p-8 bg-white/10 backdrop-blur-md rounded-[5px] border border-white/20 shadow-xl scroll-smooth no-scrollbar"
-                style="scrollbar-width: none; -ms-overflow-style: none;"
-            >
-                {images.map((img, i) => (
-                    <div class="gallery-item relative group overflow-hidden rounded-[5px] flex-none w-[80vw] h-[60vh] md:w-[600px] md:h-[700px] snap-center shrink-0 bg-black/20 text-transparent" data-index={i}>
-                        <img
-                            src={img.src}
-                            alt={`Galería ${i + 1}`}
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            loading={i < 2 ? "eager" : "lazy"}
-                        />
-                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Navigation Right -->
-            <button
-                id="gallery-next"
-                class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none"
-                aria-label="Next image"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
-            </button>
-
-            <!-- Pagination Dots -->
-            <div class="flex justify-center flex-wrap gap-2 md:gap-3 mt-8" id="gallery-dots">
-                {images.map((_, i) => (
+                <div class="relative w-full group/carousel">
+                    <!-- Navigation Left -->
                     <button
-                        class={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#C5A880] scale-125' : 'bg-white/30 hover:bg-white/50'}`}
-                        data-dot-index={i}
-                        aria-label={`Go to slide ${i + 1}`}
-                    ></button>
-                ))}
+                        id="gallery-prev"
+                        class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-white/10 border border-white/20 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none shadow-[0_18px_50px_rgba(0,0,0,0.20)]"
+                        aria-label="Previous image"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+
+                    <!-- Carousel Container -->
+                    <div
+                        id="gallery-carousel"
+                        class="w-full flex overflow-x-auto gap-4 md:gap-6 snap-x snap-mandatory py-4 px-2 md:p-8 bg-white/10 backdrop-blur-md rounded-[28px] border border-white/20 shadow-[0_18px_70px_rgba(0,0,0,0.24)] scroll-smooth no-scrollbar"
+                        style="scrollbar-width: none; -ms-overflow-style: none;"
+                    >
+                        {images.map((img, i) => (
+                            <div class="gallery-item relative group overflow-hidden rounded-[24px] flex-none w-[80vw] h-[60vh] md:w-[600px] md:h-[700px] snap-center shrink-0 bg-white/5 text-transparent border border-white/15 shadow-[0_18px_50px_rgba(0,0,0,0.18)]" data-index={i}>
+                                <img
+                                    src={img.src}
+                                    alt={`Galería ${i + 1}`}
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading={i < 2 ? "eager" : "lazy"}
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-black/5 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <!-- Navigation Right -->
+                    <button
+                        id="gallery-next"
+                        class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 bg-white/10 border border-white/20 hover:bg-[#C5A880] text-white rounded-full flex items-center justify-center backdrop-blur transition-all duration-300 opacity-100 md:opacity-0 md:group-hover/carousel:opacity-100 disabled:opacity-0 disabled:pointer-events-none shadow-[0_18px_50px_rgba(0,0,0,0.20)]"
+                        aria-label="Next image"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Pagination Dots -->
+                <div class="flex justify-center flex-wrap gap-2 md:gap-3 mt-8" id="gallery-dots">
+                    {images.map((_, i) => (
+                        <button
+                            class={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-[#C5A880] scale-125 shadow-[0_0_0_4px_rgba(197,168,128,0.12)]' : 'bg-white/40 hover:bg-white/60'}`}
+                            data-dot-index={i}
+                            aria-label={`Go to slide ${i + 1}`}
+                        ></button>
+                    ))}
+                </div>
             </div>
         </div>
     </div>
+        </div>
 </section>
 
 <style>
