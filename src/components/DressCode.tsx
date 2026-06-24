@@ -15,46 +15,46 @@ export default function DressCode() {
         </div>
 
         {/* Characters Card */}
-        <div className="flex flex-col items-center gap-8 w-full mx-auto reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
+        <div className="flex flex-col items-center gap-8 w-full max-w-5xl mx-auto reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[5px] border border-white/20 shadow-xl relative">
           {/* Row 1: FORMAL */}
           <h3 className="text-[#C5A880] text-lg md:text-xl font-inter tracking-[0.3em] font-semibold">
             FORMAL
           </h3>
 
           {/* Row 2: Characters */}
-          <div className="flex flex-row justify-center items-end gap-12 md:gap-24 w-full">
+          <div className="flex flex-row justify-center items-end gap-8 md:gap-16 w-full max-w-3xl mx-auto">
             {/* Woman */}
-            <div className="flex flex-col items-center relative">
-              <img
-                src={womenImage.src}
-                alt="Mujer"
-                className="w-40 md:w-56 mb-6 drop-shadow-md"
-                style={{ objectFit: 'contain' }}
-              />
+            <div className="flex flex-col items-center relative w-32 md:w-48 shrink-0">
               <span
-                className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
-                style={{ textShadow: "0 0 10px #000, 0 0 20px #fff" }}
+                className="absolute -top-5 md:-top-6 left-1/2 -translate-x-1/2 z-20 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-[rgba(15,12,10,0.88)] border border-[#C5A880]/60 text-4xl md:text-5xl text-[#bd9c25] italic font-playfair shadow-lg"
+                style={{ textShadow: '0 0 10px rgba(255,255,255,0.35)' }}
               >
                 M
               </span>
+              <img
+                src={womenImage.src}
+                alt="Mujer"
+                className="w-full h-52 md:h-72 mb-5 drop-shadow-md object-contain"
+                style={{ objectFit: 'contain' }}
+              />
               <p className="text-text-main font-inter text-sm md:text-base tracking-[0.2em] font-bold text-center leading-relaxed">
                 VESTIDO
               </p>
             </div>
             {/* Man */}
-            <div className="flex flex-col items-center relative">
-              <img
-                src={menImage.src}
-                alt="Hombre"
-                className="w-40 md:w-56 mb-6 drop-shadow-md"
-                style={{ objectFit: 'contain' }}
-              />
+            <div className="flex flex-col items-center relative w-32 md:w-48 shrink-0">
               <span
-                className="absolute bottom-20 md:bottom-28 text-6xl md:text-7xl text-[#bd9c25] italic font-playfair drop-shadow-[0_0_12px_rgba(189,156,37,0.7)]"
-                style={{ textShadow: "0 0 10px #000, 0 0 20px #fff" }}
+                className="absolute -top-5 md:-top-6 left-1/2 -translate-x-1/2 z-20 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-[rgba(15,12,10,0.88)] border border-[#C5A880]/60 text-4xl md:text-5xl text-[#bd9c25] italic font-playfair shadow-lg"
+                style={{ textShadow: '0 0 10px rgba(255,255,255,0.35)' }}
               >
                 H
               </span>
+              <img
+                src={menImage.src}
+                alt="Hombre"
+                className="w-full h-52 md:h-72 mb-5 drop-shadow-md object-contain"
+                style={{ objectFit: 'contain' }}
+              />
               <p className="text-text-main font-inter text-sm md:text-base tracking-[0.2em] font-bold text-center leading-relaxed">
                 TRAJE
               </p>

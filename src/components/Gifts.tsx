@@ -17,20 +17,23 @@ export default function Gifts() {
     <>
       <section className="py-24 bg-[var(--color-bg-overlay-dark)] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-          {/* Icon */}
-          <div className="mb-10 flex justify-center text-[#C5A880]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-16 h-16">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-            </svg>
-          </div>
-
-          <h2 className="font-playfair text-4xl md:text-5xl text-text-main mb-6">
-            Mesa de Regalos
-          </h2>
-
           {/* Card */}
           <div className="reveal-card slide-from-right bg-white/10 backdrop-blur-md p-8 md:p-14 rounded-[5px] border border-white/20 shadow-xl w-full mx-auto flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="flex justify-center text-[#C5A880]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-16 h-16">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                </svg>
+              </div>
+
+              <h2 className="font-playfair text-4xl md:text-5xl text-text-main">
+                Mesa de Regalos
+              </h2>
+              <p className="font-inter text-text-main/70 max-w-2xl leading-relaxed">
+                El mejor regalo es tu presencia, pero si deseas tener un detalle conmigo, puedes hacerlo a través de la siguiente cuenta:
+              </p>
+              <div className="w-16 h-px bg-[#C5A880]/60" />
+            </div>
             <p className="font-playfair italic text-text-main/90 text-xl md:text-2xl max-w-xl leading-relaxed">
               "Tu compañía es el mejor regalo que podrías darme. Gracias por estar conmigo en esta fecha tan importante."
             </p>
