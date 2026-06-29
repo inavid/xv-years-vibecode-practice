@@ -77,54 +77,6 @@ export default function Gifts() {
             {/* Divider */}
             <div className="w-16 h-px bg-[#C5A880] mx-auto opacity-50 mb-8" />
 
-            {/* Bank transfer */}
-            <div className="mb-8">
-              <p className="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-4">
-                Transferencia bancaria
-              </p>
-
-              <div className="space-y-4">
-                <div>
-                  <p className="font-inter text-xs tracking-widest text-white/40 uppercase mb-1">Banco</p>
-                  <p className="font-inter text-text-main font-medium">BBVA Bancomer</p>
-                </div>
-                <div>
-                  <p className="font-inter text-xs tracking-widest text-white/40 uppercase mb-1">Nombre</p>
-                  <p className="font-inter text-text-main font-medium">Valentina García López</p>
-                </div>
-                <div>
-                  <p className="font-inter text-xs tracking-widest text-white/40 uppercase mb-1">CLABE Interbancaria</p>
-                  <div className="flex items-center justify-between bg-white/5 px-4 py-3 border border-white/20 rounded">
-                    <p className="font-mono text-text-main tracking-wider text-sm">{clabe}</p>
-                    <button
-                      onClick={handleCopy}
-                      className="text-[#C5A880] hover:text-white transition-colors ml-3 flex items-center gap-1 text-xs font-inter"
-                      title="Copiar CLABE"
-                    >
-                      {copied ? (
-                        <>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 text-green-400">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                          </svg>
-                          <span className="text-green-400">Copiada</span>
-                        </>
-                      ) : (
-                        <>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
-                          </svg>
-                          Copiar
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="w-full h-px bg-white/10 mb-8" />
-
             {/* Gift registries */}
             <div>
               <p className="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-4">
@@ -158,7 +110,7 @@ export default function Gifts() {
 
                 {/* Liverpool */}
                 <a
-                  href="#"
+                  href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/52027250"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between bg-white/5 border border-white/15 hover:border-[#C5A880]/50 hover:bg-white/10 transition-all duration-300 px-5 py-4 rounded-[3px] group"
@@ -171,7 +123,7 @@ export default function Gifts() {
                     </div>
                     <div>
                       <p className="font-inter text-text-main font-medium text-sm">Liverpool</p>
-                      <p className="font-inter text-white/40 text-xs">Próximamente disponible</p>
+                      <p className="font-inter text-white/40 text-xs">mesaderegalos.liverpool.com.mx</p>
                     </div>
                   </div>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 text-[#C5A880] transition-transform duration-300 group-hover:translate-x-1">

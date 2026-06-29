@@ -1,12 +1,12 @@
 ---
-// RSVP.astro
+const appsScriptUrl = import.meta.env.PUBLIC_RSVP_APPS_SCRIPT_URL ?? "";
 ---
 
 <section class="py-24 bg-[var(--color-bg-overlay-dark)] text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <form
+            id="rsvp-form"
             class="reveal-card slide-from-left w-full max-w-5xl mx-auto rounded-[36px] border border-white/20 bg-[rgba(255,255,255,0.10)] p-6 md:p-8 backdrop-blur-md shadow-[0_30px_90px_rgba(0,0,0,0.28)] relative overflow-hidden text-left"
-            onsubmit="event.preventDefault(); alert('¡Gracias! (Esto es visual por ahora)');"
         >
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_50%)] pointer-events-none"></div>
 
@@ -23,20 +23,6 @@
             <div class="relative grid grid-cols-1 gap-6">
                 <div>
                     <label
-                        for="name"
-                        class="block font-inter text-xs md:text-sm mb-2 uppercase tracking-[0.25em] text-white/80"
-                        >Nombre Completo</label
-                    >
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Escribe tu nombre"
-                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#C5A880] transition-colors"
-                        required
-                    />
-                </div>
-                <div>
-                    <label
                         for="code"
                         class="block font-inter text-xs md:text-sm mb-2 uppercase tracking-[0.25em] text-white/80"
                         >Código</label
@@ -44,8 +30,9 @@
                     <input
                         type="text"
                         id="code"
-                        placeholder="ARA-001"
-                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#C5A880] transition-colors"
+                        name="code"
+                        placeholder="NXVESMA"
+                        class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#C5A880] transition-colors uppercase"
                         required
                     />
                 </div>
@@ -57,24 +44,218 @@
                     >
                     <select
                         id="attendance"
+                        name="attendance"
                         class="w-full rounded-[14px] bg-[rgba(255,255,255,0.06)] border border-white/15 px-4 py-3 text-white focus:outline-none focus:border-[#C5A880] transition-colors appearance-none [&>option]:text-text-main"
                     >
-                        <option value="yes" class="text-text-main">
+                        <option value="asiste" class="text-text-main">
                             Sí, asistiré
                         </option>
-                        <option value="no" class="text-text-main">
+                        <option value="no asiste" class="text-text-main">
                             Lo siento, no podré asistir
                         </option>
                     </select>
                 </div>
 
+                <div
+                    id="rsvp-feedback"
+                    class="hidden rounded-[18px] border px-4 py-3 text-sm leading-relaxed"
+                    aria-live="polite"
+                ></div>
+
                 <button
+                    id="rsvp-submit"
                     type="submit"
-                    class="relative mt-2 w-full rounded-full border border-[#C5A880] bg-transparent px-8 py-4 font-inter text-xs uppercase tracking-[0.25em] text-[#C5A880] transition-all duration-300 hover:bg-[#C5A880] hover:text-white"
+                    class="relative mt-2 w-full rounded-full border border-[#C5A880] bg-transparent px-8 py-4 font-inter text-xs uppercase tracking-[0.25em] text-[#C5A880] transition-all duration-300 hover:bg-[#C5A880] hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                    Confirmar
+                    <span id="rsvp-submit-label">Confirmar</span>
                 </button>
             </div>
         </form>
     </div>
 </section>
+
+<div
+    id="rsvp-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 px-4"
+    aria-hidden="true"
+>
+    <div class="w-full max-w-md rounded-[28px] border border-white/15 bg-[#1F1612] p-8 text-center shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
+        <p class="font-inter text-xs uppercase tracking-[0.35em] text-[#C5A880]">Confirmación Exitosa</p>
+        <h3 id="rsvp-modal-title" class="mt-4 font-playfair text-3xl italic text-white">
+            Tu asistencia quedó registrada
+        </h3>
+        <p id="rsvp-modal-message" class="mt-4 font-inter text-white/80 leading-relaxed"></p>
+        <button
+            id="rsvp-modal-close"
+            type="button"
+            class="mt-8 inline-flex rounded-full border border-[#C5A880] px-6 py-3 font-inter text-xs uppercase tracking-[0.25em] text-[#C5A880] transition-all duration-300 hover:bg-[#C5A880] hover:text-white"
+        >
+            Cerrar
+        </button>
+    </div>
+</div>
+
+<script define:vars={{ appsScriptUrl }} is:inline>
+    (() => {
+        const form = document.querySelector('#rsvp-form');
+        const feedback = document.querySelector('#rsvp-feedback');
+        const submitButton = document.querySelector('#rsvp-submit');
+        const submitLabel = document.querySelector('#rsvp-submit-label');
+        const modal = document.querySelector('#rsvp-modal');
+        const modalMessage = document.querySelector('#rsvp-modal-message');
+        const modalClose = document.querySelector('#rsvp-modal-close');
+        const modalTitle = document.querySelector('#rsvp-modal-title');
+
+        if (!form || !feedback || !submitButton || !submitLabel || !modal || !modalMessage || !modalClose || !modalTitle) {
+            return;
+        }
+
+        const statusClasses = {
+            error: 'border-red-300/40 bg-red-500/10 text-red-100',
+            success: 'border-emerald-300/40 bg-emerald-500/10 text-emerald-100',
+            info: 'border-white/20 bg-white/8 text-white/85',
+        };
+
+        const setFeedback = (type, message) => {
+            feedback.className = 'rounded-[18px] border px-4 py-3 text-sm leading-relaxed';
+            feedback.classList.add(...statusClasses[type].split(' '));
+            feedback.textContent = message;
+            feedback.classList.remove('hidden');
+        };
+
+        const clearFeedback = () => {
+            feedback.className = 'hidden rounded-[18px] border px-4 py-3 text-sm leading-relaxed';
+            feedback.textContent = '';
+        };
+
+        const setLoading = (isLoading) => {
+            submitButton.disabled = isLoading;
+            submitLabel.textContent = isLoading ? 'Validando...' : 'Confirmar';
+        };
+
+        const openModal = (message, title = 'Tu asistencia quedó registrada') => {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        const callAppsScript = (params) => {
+            if (!appsScriptUrl) {
+                return Promise.reject(
+                    new Error('Falta configurar PUBLIC_RSVP_APPS_SCRIPT_URL para conectar el formulario.')
+                );
+            }
+
+            return new Promise((resolve, reject) => {
+                const callbackName = `rsvpCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+                const script = document.createElement('script');
+                const url = new URL(appsScriptUrl);
+
+                Object.entries({ ...params, callback: callbackName }).forEach(([key, value]) => {
+                    url.searchParams.set(key, String(value));
+                });
+
+                let settled = false;
+
+                const cleanup = () => {
+                    settled = true;
+                    delete window[callbackName];
+                    script.remove();
+                    clearTimeout(timeoutId);
+                };
+
+                const timeoutId = window.setTimeout(() => {
+                    if (settled) {
+                        return;
+                    }
+                    cleanup();
+                    reject(new Error('No fue posible validar tu invitación. Intenta de nuevo en unos minutos.'));
+                }, 12000);
+
+                window[callbackName] = (payload) => {
+                    cleanup();
+                    resolve(payload);
+                };
+
+                script.onerror = () => {
+                    if (settled) {
+                        return;
+                    }
+                    cleanup();
+                    reject(new Error('No fue posible conectar con el servicio de confirmación.'));
+                };
+
+                script.src = url.toString();
+                document.body.appendChild(script);
+            });
+        };
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+                closeModal();
+            }
+        });
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            clearFeedback();
+            setLoading(true);
+
+            const formData = new FormData(form);
+            const code = String(formData.get('code') ?? '').trim().toUpperCase();
+            const attendance = String(formData.get('attendance') ?? '').trim().toLowerCase();
+
+            if (!code || !attendance) {
+                setLoading(false);
+                setFeedback('error', 'Completa todos los campos antes de confirmar.');
+                return;
+            }
+
+            try {
+                const response = await callAppsScript({
+                    action: 'confirm',
+                    code,
+                    attendance,
+                });
+
+                if (!response || response.ok !== true) {
+                    throw new Error(response?.message || 'No fue posible registrar tu confirmación.');
+                }
+
+                if (attendance === 'asiste') {
+                    const tickets = Number(response.tickets ?? 0);
+                    const ticketLabel = tickets === 1 ? 'boleto' : 'boletos';
+                    openModal(
+                        `Gracias, ${response.guestName || 'invitado'}. Tu lugar quedó confirmado. Tienes ${tickets} ${ticketLabel} para el evento.`
+                    );
+                    setFeedback('success', 'Tu asistencia quedó confirmada correctamente.');
+                } else {
+                    setFeedback('success', response.message || 'Tu respuesta quedó registrada. Gracias por avisarnos.');
+                }
+
+                form.reset();
+            } catch (error) {
+                setFeedback('error', error instanceof Error ? error.message : 'Ocurrió un error inesperado.');
+            } finally {
+                setLoading(false);
+            }
+        });
+    })();
+</script>
