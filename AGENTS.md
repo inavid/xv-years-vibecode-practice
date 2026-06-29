@@ -33,6 +33,7 @@
 
 - El frontend espera la variable pública `PUBLIC_RSVP_APPS_SCRIPT_URL`.
 - El código del Web App de Apps Script vive en `apps-script/rsvp-webapp.gs`.
+- Si el Apps Script se despliega como proyecto standalone, debe definirse `SPREADSHEET_ID`.
 
 ## Criterios de cambio
 

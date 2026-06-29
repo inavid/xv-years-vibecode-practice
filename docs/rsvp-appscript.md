@@ -4,6 +4,12 @@
 
 El formulario de RSVP del sitio valida y registra confirmaciones usando un Google Apps Script publicado como Web App. El frontend envía los datos por JSONP para evitar problemas de CORS en un sitio estático.
 
+## Importante sobre el deployment
+
+Si el Apps Script está creado como proyecto standalone, `SpreadsheetApp.getActiveSpreadsheet()` no funciona en el Web App. En ese caso debes llenar `SPREADSHEET_ID` dentro de `apps-script/rsvp-webapp.gs`.
+
+Si el script está vinculado directamente al Google Sheet, `SPREADSHEET_ID` puede quedarse vacío.
+
 ## Estructura del Sheet
 
 La hoja debe contener estas columnas en la primera fila:
@@ -68,11 +74,12 @@ Parámetros enviados desde el frontend:
 3. Agregar los encabezados requeridos.
 4. Abrir `Extensiones > Apps Script`.
 5. Pegar el contenido de `apps-script/rsvp-webapp.gs`.
-6. Guardar el proyecto.
-7. En `Implementar > Nueva implementación`, publicar como `Aplicación web`.
-8. Ejecutar como tu cuenta.
-9. Dar acceso a `Cualquier persona`.
-10. Copiar la URL del Web App.
+6. Si el proyecto de Apps Script no está vinculado al Sheet, llenar `SPREADSHEET_ID` con el ID del documento.
+7. Guardar el proyecto.
+8. En `Implementar > Nueva implementación`, publicar como `Aplicación web`.
+9. Ejecutar como tu cuenta.
+10. Dar acceso a `Cualquier persona`.
+11. Copiar la URL del Web App.
 
 ## Configuración del frontend
 
@@ -93,3 +100,4 @@ PUBLIC_RSVP_APPS_SCRIPT_URL="https://script.google.com/macros/s/TU_DEPLOYMENT_ID
 - La validación normaliza acentos, espacios y mayúsculas/minúsculas.
 - El código del invitado se compara en mayúsculas.
 - Si cambian los encabezados, también debe actualizarse `rsvp-webapp.gs`.
+- Si el deployment es standalone, el ID del spreadsheet debe definirse explícitamente.

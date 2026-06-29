@@ -1,4 +1,5 @@
-const SHEET_NAME = '';
+const SHEET_NAME = 'Invitados Nicole XV';
+const SPREADSHEET_ID = '10-fMxuNRJMC4zoNmJCYq76dXg23GkWFHeOMwEZ0LA1Y';
 const HEADERS = {
   guestName: 'invitado',
   code: 'codigo',
@@ -125,13 +126,28 @@ function buildHeaderMap(headerRow) {
 }
 
 function getTargetSheet() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = getSpreadsheet();
 
   if (SHEET_NAME) {
     return spreadsheet.getSheetByName(SHEET_NAME);
   }
 
   return spreadsheet.getSheets()[0] || null;
+}
+
+function getSpreadsheet() {
+  if (SPREADSHEET_ID) {
+    return SpreadsheetApp.openById(SPREADSHEET_ID);
+  }
+
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  if (activeSpreadsheet) {
+    return activeSpreadsheet;
+  }
+
+  throw new Error(
+    'No hay spreadsheet activo. Define SPREADSHEET_ID o vincula este script al Google Sheet.'
+  );
 }
 
 function findGuestRow(values, headerMap, code) {
