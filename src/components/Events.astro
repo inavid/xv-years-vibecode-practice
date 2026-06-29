@@ -1,4 +1,6 @@
 ---
+const venueName = "Salon de fiestas y eventos EL POTRERO";
+const venueUrl = "https://maps.app.goo.gl/GBxY7evKf94K9Apd8";
 ---
 
 <section class="py-24 bg-[var(--color-bg-overlay-dark)] relative">
@@ -9,30 +11,54 @@
 					Dónde &amp; Cuándo
 				</h2>
 				<p class="font-inter text-white/80 max-w-2xl leading-relaxed">
-					Todo sucede en un solo lugar
+					La misa y la fiesta se celebrarán en el mismo lugar
 				</p>
 				<div class="w-24 h-[1px] bg-[#C5A880] mx-auto opacity-50 mt-6"></div>
 			</div>
 
-			<div class="relative overflow-hidden rounded-[28px] border border-white/20 bg-[rgba(255,255,255,0.10)] p-6 md:p-8 text-center">
-					<div class="mb-8 flex justify-center text-white/90">
+			<div class="relative overflow-hidden rounded-[28px] border border-white/20 bg-[rgba(255,255,255,0.10)] p-6 md:p-8">
+				<div class="grid gap-4 md:grid-cols-2">
+					<div class="rounded-[24px] border border-white/15 bg-white/8 p-6 text-center shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+						<p class="font-inter text-[11px] tracking-[0.3em] uppercase text-[#C5A880] mb-3">
+							Misa
+						</p>
+						<h4 class="font-playfair text-3xl md:text-4xl text-white mb-3">19:00 hrs</h4>
+						<p class="font-inter text-sm md:text-base text-white/80 leading-relaxed">
+							La ceremonia religiosa dará inicio a la celebración.
+						</p>
+					</div>
+
+					<div class="rounded-[24px] border border-white/15 bg-white/8 p-6 text-center shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+						<p class="font-inter text-[11px] tracking-[0.3em] uppercase text-[#C5A880] mb-3">
+							Fiesta
+						</p>
+						<h4 class="font-playfair text-3xl md:text-4xl text-white mb-3">20:00 hrs</h4>
+						<p class="font-inter text-sm md:text-base text-white/80 leading-relaxed">
+							Al terminar la misa comenzará la fiesta en la misma sede.
+						</p>
+					</div>
+				</div>
+
+				<div class="mt-6 rounded-[24px] border border-white/15 bg-white/8 px-6 py-7 text-center shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+					<div class="mb-4 flex justify-center text-white/90">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-8 h-8">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"></path>
 						</svg>
 					</div>
-					<h4 class="font-playfair text-2xl md:text-4xl mb-3 text-white">
-						Salon de fiestas y eventos EL POTRERO
+					<p class="font-inter text-[11px] tracking-[0.3em] uppercase text-white/70 mb-3">
+						Lugar
+					</p>
+					<h4 class="font-playfair text-2xl md:text-4xl text-white mb-3">
+						{venueName}
 					</h4>
-					<p class="font-inter text-sm tracking-[0.3em] uppercase text-white/80 mb-4">
-						16:00 Hrs
+					<p class="font-inter text-base md:text-lg leading-relaxed mb-6 text-white/82 max-w-2xl mx-auto">
+						No necesitas trasladarte: la misa y la fiesta ocurren en la misma sede.
 					</p>
-					<p class="font-inter text-base md:text-lg leading-relaxed mb-6 text-white/82">
-						Salon de fiestas y eventos EL POTRERO
-					</p>
-					<a href="https://maps.app.goo.gl/GBxY7evKf94K9Apd8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-w-[240px] rounded-full border border-white/70 px-8 py-4 font-inter text-xs tracking-[0.25em] uppercase text-white transition-colors duration-300 hover:bg-white hover:text-[#7A8072]">
+					<a href={venueUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-w-[240px] rounded-full border border-white/70 px-8 py-4 font-inter text-xs tracking-[0.25em] uppercase text-white transition-colors duration-300 hover:bg-white hover:text-[#7A8072]">
 						Ver Mapa
 					</a>
 				</div>
+			</div>
 		</div>
 	</div>
 </section>
