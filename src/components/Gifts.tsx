@@ -13,6 +13,19 @@ export default function Gifts() {
     });
   };
 
+  const extraGiftOptions = [
+    {
+      icon: '✉️',
+      title: 'Lluvia de sobres',
+      text: 'Tendremos lluvia de sobres en el evento',
+    },
+    {
+      icon: '🎁',
+      title: 'Regalo libre',
+      text: 'Puedes darme un regalo de tu preferencia',
+    },
+  ];
+
   return (
     <>
       <section className="py-24 bg-[var(--color-bg-overlay-dark)] relative">
@@ -77,9 +90,32 @@ export default function Gifts() {
             {/* Divider */}
             <div className="w-16 h-px bg-[#C5A880] mx-auto opacity-50 mb-8" />
 
+            <div>
+              <p className="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-4 text-center">
+                Opciones adicionales
+              </p>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {extraGiftOptions.map((option) => (
+                  <div key={`v1-${option.title}`} className="rounded-[18px] border border-[#C5A880]/35 bg-[rgba(255,255,255,0.04)] px-5 py-6 text-center">
+                    <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border border-white/15 bg-white/90 text-4xl">
+                      <span>{option.icon}</span>
+                    </div>
+                    <p className="font-playfair text-2xl text-text-main mb-3">
+                      {option.title}
+                    </p>
+                    <p className="font-inter text-sm leading-relaxed text-white/75">
+                      {option.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-white/10 my-8" />
+
             {/* Gift registries */}
             <div>
-              <p className="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-4">
+              <p className="font-inter text-xs tracking-widest text-[#C5A880] uppercase mb-4 text-center">
                 Mesas de regalos en línea
               </p>
 
